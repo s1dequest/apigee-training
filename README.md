@@ -1,6 +1,6 @@
 # Apigee
 ## Course 1: API Design and Fundamentals of Google Cloud's Apigee API Platform
-#### This README will serve as my notes document for all Apigee training coursework.
+#### This README and repository will serve as my notes document for all Apigee training coursework.
 
 * Fundamentals:
 ```
@@ -92,3 +92,5 @@ We open apps, click around, and get responses. We may also do things like log in
   * Management UI and Management API have the same capabilities.
     * Use the API to write management scripts relating to users, proxies, and env config.
     * Can do similar stuff with the Analtyics API.
+
+### Next, ~/APIDesign.md.
