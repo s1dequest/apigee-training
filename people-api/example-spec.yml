@@ -12,7 +12,7 @@ info:
     It can be multiple lines.
 
 host:
-  people.apigee.io
+  foo.apigee.io
 
 schemes:
   - https

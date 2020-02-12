@@ -14,6 +14,6 @@
         <Response/>
     </PostFlow>
     <HTTPTargetConnection>
-        <URL>https://people.apigee.io/</URL>
+        <URL>https://foo.apigee.io/</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>
