@@ -18,4 +18,30 @@
       * Resource Oriented
         * /v1/customers = collection of or search for customers
         * /v1/customers/{id} = specific customer
-
+    * Sample interaction:
+      * `GET /v1/customers HTTP/1.1 on Host: api.yourdomain.com`
+        * Returns a json array of customers
+        * Specifying a specific customer id would return a json object with that customers information.
+        * Alternatively, if the endpoint has been moved, the response object should tell the api consuming dev what to do. Ex:
+        ```
+        301 Moved Permanently
+        Location: https://api.yourdomain.com/v2/customers
+        {
+          "depracated": true,
+          "message": "use /v2/customers"
+        }
+        ```
+  * Best Practices of API Design
+    * Outside-In approach - Consumption Model.
+      * "If I was an app developer consuming this API, how would I want it to work?"
+    * Allow consumers to give feedback.
+    * Focus on thinking about resources that are used rather than actions that are taken.
+      * Nouns are good. Verbs are bad.
+    * Do any existing services provide most of the functions you need?
+    * Non-functional requirements - SLAs, latency timing, etc... should not be allowed to impact API design.
+    * Avoid anything custom that cannot be re-used and must be explained.
+    * Plural Nouns = Collections
+    * Primary Resources should be no greater than 2 levels deep into an endpoint.
+      * ex: `https://myserver/v1/dogs/{dog-id}`
+    * Verbs should not be a part of URI's.
+      * GET, POST, PUT, DELETE on a resource `.../dogs/...` should cover everything you need.
