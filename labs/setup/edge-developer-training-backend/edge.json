@@ -5,7 +5,7 @@
           "targetServers": [
               {
                 "name" : "edge-developer-training-backend",
-                "host" : "undefined",
+                "host" : "spiderproject.firebaseio.com",
                 "isEnabled" : true,
                 "port" : 443,
                 "sSLInfo": {
@@ -22,7 +22,7 @@
           "targetServers": [
             {
               "name" : "edge-developer-training-backend",
-              "host" : "undefined",
+              "host" : "spiderproject.firebaseio.com",
               "isEnabled" : true,
               "port" : 443,
               "sSLInfo": {
