@@ -8,7 +8,7 @@
     * Takes requests from the internet and forwards them to servers in an internal network.
     * Requests from outside the internal network may or may not know about the internal networks existence.
   * In apigee, its basically the same thing:
-    * **App <=secure=> API Proxy <=> API** 
+    * **App <=secure=> API Proxy <=> API**
     * Client <=> Proxy Endpoint | Target Endpoint <=> Server
 
 * Why add the extra proxy hop that Apigee requires?
@@ -43,3 +43,20 @@
     * `request.streaming.enabled`
     * `reponse.streaming.enabled`
     * `success.codes`
+
+* Debugging Using Trace:
+  * Shows each step your api takes in request and response.
+
+* Lab: Building an API Proxy
+  * Creating an API Proxy for a backend service that you want to expose requires you to provide to Apigee Edge:
+    * the base network address for the backend service,
+    * the HTTP verbs and resource paths you would like to expose to "consumer developers",
+    * a few other bits and bobs of information
+  * After following the directions to build and deploy the proxy...
+    * In Edge, go to API Proxies > Products > Trace
+    * Select 'Start Trace Session'
+    * Send a request to `/v1/product/{product_id}` in Postman
+    * The UI in Edge should now update with the transaction map and all other information the Trace tool captures.
+
+* Conditions and Route Rules:
+  *
