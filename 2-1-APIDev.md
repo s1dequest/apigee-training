@@ -58,5 +58,28 @@
     * Send a request to `/v1/product/{product_id}` in Postman
     * The UI in Edge should now update with the transaction map and all other information the Trace tool captures.
 
-* Conditions and Route Rules:
-  *
+* Conditions
+  * Results are boolean
+  * Chaining possible
+  * Format = `<Condition>{var.name}{operator}{"value"}</Condition>`
+    * example
+    * Here, we only execute the policy if the request header is "application/json"
+```xml
+<Step>
+  <Coniditon>request.header.accept = "application/json"</Condition>
+  <Name>XMLToJSON</Name>
+</Step>
+```
+  * Target endpoint route selection example:
+```xml
+<RouteRule name="xmlTarget">
+  <Coniditon>request.header.Content-Type = "text/xml"</Condition>
+  <TargetEndpoint>XmlTargetEndpoint</TargetEndpoint>
+</RouteRule>
+
+<RouteRule name="default">
+  <TargetEndpoint>target</TargetEndpoint>
+</RouteRule>
+```
+  * Documentation notes a few pattern matching options. Can use Regex.
+  * Default route rules should always be last.
