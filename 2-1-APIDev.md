@@ -83,3 +83,37 @@
 ```
   * Documentation notes a few pattern matching options. Can use Regex.
   * Default route rules should always be last.
+
+* Lab: CORS Preflight Condition
+  * "CORS (Cross-origin resource sharing) is a standard mechanism that allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. Most modern browsers support CORS."
+  * "CORS preflight refers to sending a request to a server to verify if it supports CORS. Typical preflight responses include which origins the server will accept CORS requests from, a list of HTTP methods that are supported for CORS requests, headers that can be used as part of the resource request, the maximum time preflight response will be cached, and others. If the service does not indicate CORS support or does not wish to accept cross-origin requests from the client's origin, the cross-origin policy of the browser will be enforced and any cross-domain requests made from the client to interact with resources hosted on that server will fail."
+
+### Policies
+* What is a Policy in Apigee?
+  * Like a module that implements a specific, limited management function.
+  * Programs API behavior
+  * Allow users to add custom logic via JS, Python, etc...
+  * Ex: Transform a backend XML response to JSON.
+* Categories of prebuilt policies:
+  * Traffic management
+    * Protect against DDOS or severe traffic spikes
+    * Used as 'preflow'
+    * Spike Arrest:
+      * Pre-built policy. Just add from Develop => API Proxies => Products => Develop => Add Step.
+      * Limit requests per time interval (200ps for 200 requests per second).
+    * Quota:
+      * Use 'Reset Quota' to do exactly what you'd expect
+      * Can configure different api consumption limits for different roles (product, dev, etc...)
+    * Concurrent Rate Limit:
+      * Uncommon
+      * Throttles inbound connections from Edge to backend
+      * Limits concurrent connections
+      * Must be attached to both request and response flows in the target endpoint
+    * Response Cache:
+      * Cache whole HTTP response
+      * Improve performance by retrieving response from cache
+      * Policy attached in both request and response flows
+      * Only used on GET calls
+  * Mediation
+  * Security
+  * Extension
