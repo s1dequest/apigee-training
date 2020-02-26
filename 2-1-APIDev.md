@@ -115,5 +115,41 @@
       * Policy attached in both request and response flows
       * Only used on GET calls
   * Mediation
+    * Group of policies that interacts with and have the ability to transform the request in response as your proxy executes. Ex: JSON to XML.
+    * Assign Message:
+      * Create or Update request, response, and flow vars.
+      * Can be used at any point in the proxy.
+    * Extract Vars:
+      * Extract data from request, response, and flow vars.
+      * Use text matching like regex.
+      * Can be used at any point in the proxy.
+    * Access Entity
+      * Retrieve metadata about a consumer at runtime.
+      * Ex: Consuming customer email address.
+      * Can be used at any point in the proxy.
+    * Key Value Map Ops:
+      * Allows runtime access to key value maps you have stored in apigee edge.
+      * Use with GET, PUT, DELETE.
+      * Can be used at any point in the proxy.
   * Security
+    * Basic Auth
+      * Base64 encode un and pw to be sent to the backend.
+      * Base64 decode auth header.
+      * Can be used at any point in the proxy.
+    * XML, JSON, Regex, Threat Protection
+      * Validate request payloads via `Content-type: application/xml` `Content-type: application/json`.
+        * Ex: XML Validation validates the xml payload against the provided xml schema. If the schema does not match what we provide, an error is returned.
+      * Regex validates URI, Headers, and payload against the patterns specified. Separate from the above XML/JSON validation.
+    * Verify API Key Policy
+      * Returns 401 if key is invalid.
+      * Verify api key at runtime.
+    * OAuth v2
+      * Generate access token, verify token, gen auth code, refresh access token.
+      * Get and set token attributes
+      * Delete codes and tokens
+      * Can be used at any point in the proxy.
+    * SAML
+      * For SOAP or XML payloads.
+    * Access Control
+      * IP Whitelisting
   * Extension
