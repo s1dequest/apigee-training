@@ -153,3 +153,18 @@
     * Access Control
       * IP Whitelisting
   * Extension
+
+### Target Servers:
+* Building Target Auth Securely
+  * Options:
+    * Hard Code
+      * Needs to be edited frequently
+    * Replace at build time with scripts
+      * Needs to be edited frequently
+    * Vault
+      * 1) Build Vault via API
+      * 2) Create the entries with the Vault via API
+      * 3) Retrieve data in Node.js app
+    * Encrypted KVM (recommended by apigee)
+      * In Edge.
+      * Retrieve data via GET in KVM Policy.
